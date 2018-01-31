@@ -20,5 +20,7 @@ namespace StructTest
             }
             Assert.IsTrue(testStruct.GetSum(4,104) == 5450);
         }
+
+        
     }
 }
