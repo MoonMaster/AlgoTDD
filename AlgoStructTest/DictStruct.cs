@@ -15,7 +15,7 @@ namespace AlgoStructTest
 
         public DictStruct(int size)
         {
-            dictionaryContainer = new Dictionary<int, double>(size);
+            dictionaryContainer = new Dictionary<int, double>();
 
             sizeDictionaryContainer = size;
         }
@@ -30,19 +30,17 @@ namespace AlgoStructTest
             else
             {
 
-                //dictionaryContainer = dictionaryContainer.Skip(1).ToDictionary;
+                int firstIndex = dictionaryContainer.Keys.First();
+
+                dictionaryContainer.Remove(firstIndex);
 
 
-
-                dictionaryContainer.Remove(dictionaryContainer.Keys.First());
-
-                //int lastKey = dictionaryContainer.Keys.Last();
-
-                //dictionaryContainer.Add(lastKey + 1, value);
+                for (int index = 1; index < sizeDictionaryContainer; index++ )
+                {
+                    dictionaryContainer[index - 1] = dictionaryContainer[index];
+                }
 
                 dictionaryContainer[currentIteration] = value;
-
-                dictionaryContainer.OrderBy(key => key.Key);
 
                 currentIteration--;
             }

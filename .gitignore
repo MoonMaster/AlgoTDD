@@ -26,6 +26,7 @@ RawBlameHistory
 *.user
 *.userosscache
 *.sln.docstates
+TaskDescription.txt
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

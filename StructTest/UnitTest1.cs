@@ -42,12 +42,12 @@ namespace StructTest
         {
             IContainer testDictStruct = new DictStruct(5);
 
-            for (int index = 0; index <=10; index++)
+            for (int index = 0; index <10; index++)
             {
                 testDictStruct.Add(index * 1.0);
             }
 
-            Assert.AreEqual(11.0, testDictStruct.GetSum(0, 1));
+            Assert.AreEqual(4.0, testDictStruct.GetSum(0, 1));
         }
         #endregion Test For DictStruct
     }

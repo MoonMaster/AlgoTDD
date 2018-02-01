@@ -44,7 +44,7 @@ namespace AlgoStructTest
 
             int newEndIndex = endIndex > arrayContainer.Length ? arrayContainer.Length : endIndex;
 
-            return arrayContainer.Skip(newStartIndex).Take(newEndIndex).Sum();
+            return arrayContainer.Skip(newStartIndex+1).Take(newEndIndex).Sum();
 
         }
     }
