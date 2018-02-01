@@ -24,35 +24,33 @@ namespace AlgoStructTest
         {
             if (currentIteration != sizeDictionaryContainer)
             {
-                //dictionaryContainer.Add(currentIteration, value);
-                dictionaryContainer[currentIteration] = value;
+                dictionaryContainer.Add(currentIteration, value);
+                
             }
             else
             {
 
-                int firstIndex = dictionaryContainer.Keys.First();
+                int maxKey = dictionaryContainer.Keys.Max();
+
+                int firstIndex = dictionaryContainer.Keys.Min();
 
                 dictionaryContainer.Remove(firstIndex);
 
-
-                for (int index = 1; index < sizeDictionaryContainer; index++ )
-                {
-                    dictionaryContainer[index - 1] = dictionaryContainer[index];
-                }
-
-                dictionaryContainer[currentIteration] = value;
+                dictionaryContainer.Add(maxKey + 1, value);
 
                 currentIteration--;
             }
             currentIteration++;
-            //Put your code here
+            
         }
 
         public double GetSum(int startIndex, int endIndex)
         {
-            return dictionaryContainer.Skip(startIndex).Take(endIndex).Sum(x => x.Value);
-            //Put your code here
-           // return 0; // Just to calm up compiler
+            int newIndexStart = startIndex < 0 ? 0 : startIndex;
+
+            int newIndexEnd = endIndex > sizeDictionaryContainer ? sizeDictionaryContainer : endIndex;
+
+            return dictionaryContainer.Skip(newIndexStart + 1).Take(newIndexEnd).Sum(value => value.Value);
         }
     }
 }

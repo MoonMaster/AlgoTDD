@@ -26,12 +26,12 @@ namespace StructTest
         {
             IContainer testArrayStruct = new ArrayStruct(5);
 
-            for (int index = 0; index <= 10; index++)
+            for (int index = 0; index < 10; index++)
             {
                 testArrayStruct.Add(index * 1.0);
             }
 
-            Assert.AreEqual(testArrayStruct.GetSum(-1, 1), 6.0);
+            Assert.AreEqual(6.0,testArrayStruct.GetSum(-1, 1));
         }
 
         #endregion Test for ArrayStruct
@@ -42,13 +42,47 @@ namespace StructTest
         {
             IContainer testDictStruct = new DictStruct(5);
 
-            for (int index = 0; index <10; index++)
+            for (int index = 0; index < 10; index++)
             {
                 testDictStruct.Add(index * 1.0);
             }
 
-            Assert.AreEqual(4.0, testDictStruct.GetSum(0, 1));
+            Assert.AreEqual(6.0, testDictStruct.GetSum(-1, 1));
         }
         #endregion Test For DictStruct
+
+        #region Test For LinkedStruct
+
+        [TestMethod]
+        public void TestLinkedStruct()
+        {
+            IContainer testLinkedStruct = new LinkedListStruct(5);
+
+            for (int index = 0; index < 10; index++)
+            {
+                testLinkedStruct.Add(index * 1.0);
+            }
+
+            Assert.AreEqual(6.0, testLinkedStruct.GetSum(-1, 1));
+        }
+
+        #endregion Test For LinkedStruct
+
+        #region Test My Struct
+        [TestMethod]
+        public void TestMyStruct()
+        {
+
+            IContainer testMyStruct = new YourFastStruct(5);
+
+            for (int index = 0; index < 10; index++)
+            {
+                testMyStruct.Add(index * 1.0);
+            }
+
+            Assert.AreEqual(6.0, testMyStruct.GetSum(-1, 1));
+        }
+
+        #endregion Test My Struct
     }
 }

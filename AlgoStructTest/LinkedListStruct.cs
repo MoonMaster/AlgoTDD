@@ -7,20 +7,51 @@ namespace AlgoStructTest
 {
     public class LinkedListStruct:IContainer
     {
+        private LinkedList<double> linkedListStruct;
+
+        private int limitSize;
+
+        private int currentIteration;
+
         public LinkedListStruct(int size)
         {
-            
+            linkedListStruct = new LinkedList<double>();
+
+            limitSize = size;
         }
 
         public void Add(double value)
         {
-            //Put your code here
+            if (currentIteration == 0)
+            {
+                linkedListStruct.AddFirst(value);
+            }
+            else if (currentIteration != limitSize)
+            {
+                linkedListStruct.AddLast(value);
+            }
+            else
+            {
+                linkedListStruct.RemoveFirst();
+
+                linkedListStruct.AddLast(value);
+
+                currentIteration--;
+            }
+
+            
+
+            currentIteration++;
         }
 
         public double GetSum(int startIndex, int endIndex)
         {
-            //Put your code here
-            return 0; // Just to calm up compiler
+
+            int newStartIndex = startIndex < 0 ? 0 : startIndex;
+
+            int newEndIndex = endIndex > limitSize ? limitSize : endIndex;
+
+            return linkedListStruct.Skip(newStartIndex + 1).Take(newEndIndex).Sum();
         }
     }
 }
