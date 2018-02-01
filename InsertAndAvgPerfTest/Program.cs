@@ -12,7 +12,7 @@ namespace InsertAndAvgPerfTest
     {
         static void Main(string[] args)
         {
-            ArrayStruct test = new ArrayStruct(2);
+            DictStruct test = new DictStruct(5);
 
             test.Add(1.0);
 
@@ -21,6 +21,15 @@ namespace InsertAndAvgPerfTest
             test.Add(3.0);
 
             test.Add(4.0);
+
+            test.Add(5.0);
+
+            test.Add(6.0);
+
+            test.Add(7.0);
+            test.Add(8.0);
+            test.Add(9.0);
+            test.Add(10.0);
 
             double summa = test.GetSum(1, 1);
             //Impelement here comparison test, to proof, your struct is Faster of equal in comparison to others.

@@ -20,7 +20,35 @@ namespace StructTest
             }
             Assert.IsTrue(testStruct.GetSum(4,104) == 5450);
         }
+        #region Test for ArrayStruct
+        [TestMethod]
+        public void CheckCorrectWorkGetSum()
+        {
+            IContainer testArrayStruct = new ArrayStruct(5);
 
-        
+            for (int index = 0; index <= 10; index++)
+            {
+                testArrayStruct.Add(index * 1.0);
+            }
+
+            Assert.AreEqual(testArrayStruct.GetSum(-1, 1), 6.0);
+        }
+
+        #endregion Test for ArrayStruct
+
+        #region Test For DictStruct
+        [TestMethod]
+        public void TestDictStructPositiv()
+        {
+            IContainer testDictStruct = new DictStruct(5);
+
+            for (int index = 0; index <=10; index++)
+            {
+                testDictStruct.Add(index * 1.0);
+            }
+
+            Assert.AreEqual(11.0, testDictStruct.GetSum(0, 1));
+        }
+        #endregion Test For DictStruct
     }
 }

@@ -26,25 +26,26 @@ namespace AlgoStructTest
             }
             else
             {
-                for (int index = 0; index < sizeArrayContainer-1; index++ )
-                {
-                    arrayContainer[index] = arrayContainer[index + 1];
-                }
+                arrayContainer = arrayContainer.Skip(1).ToArray();
 
-                arrayContainer[currentIteration-1] = value;
+                Array.Resize(ref arrayContainer, currentIteration);
+
+                arrayContainer[currentIteration - 1] = value;
 
                 currentIteration--;
             }
 
             currentIteration++;
         }
-
+        //TODO Add additional check for input params
         public double GetSum(int startIndex, int endIndex)
         {
-            //check end index and start index???
+            int newStartIndex = startIndex < 0 ? 0 : startIndex;
 
-            return arrayContainer.Skip(startIndex).Take(endIndex).Sum();
-            //return 0; // Just to calm up compiler
+            int newEndIndex = endIndex > arrayContainer.Length ? arrayContainer.Length : endIndex;
+
+            return arrayContainer.Skip(newStartIndex).Take(newEndIndex).Sum();
+
         }
     }
 }
