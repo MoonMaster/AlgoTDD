@@ -10,10 +10,11 @@ namespace AlgoStructTest
         private double[] arrayContainer;
 
         private int currentIteration = 0;
-        
+
         public ArrayStruct(int size)
         {
             arrayContainer = new double[size];
+            
         }
 
         public void Add(double value)
@@ -44,7 +45,7 @@ namespace AlgoStructTest
 
             int newEndIndex = endIndex > arrayContainer.Length ? arrayContainer.Length : endIndex;
 
-            return arrayContainer.Skip(newStartIndex+1).Take(newEndIndex).Sum();
+           return arrayContainer.Skip(newStartIndex+1).Take(newEndIndex).Sum();
 
         }
     }
