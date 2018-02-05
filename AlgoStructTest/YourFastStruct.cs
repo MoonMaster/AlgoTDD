@@ -39,9 +39,6 @@ namespace AlgoStructTest
 
                 myFastStruct.Add(value);
 
-                
-               
-
                 currentIteration--;
             }
 
@@ -50,9 +47,15 @@ namespace AlgoStructTest
 
         public double GetSum(int startIndex, int endIndex)
         {
+            if (startIndex > endIndex || startIndex > limitSize)
+                throw new ArgumentOutOfRangeException("The Start index lwss end index");
+
             int newStartIndex = startIndex < 0 ? 0 : startIndex;
 
             int newEndIndex = endIndex > limitSize ? limitSize : endIndex;
+
+            if ((newStartIndex + 1) == newEndIndex)
+                return myFastStruct[newEndIndex];
 
             return myFastStruct.Skip(newStartIndex + 1).Take(newEndIndex).Sum();
 

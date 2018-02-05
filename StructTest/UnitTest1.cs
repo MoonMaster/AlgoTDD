@@ -144,6 +144,47 @@ namespace StructTest
             Assert.AreEqual(-81.0, testMyTestStruct.GetSum(0, 5));
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException),"The Start index lwss end index")]
+        public void CheckExceptionOutOfRange()
+        {
+            IContainer myFastContainer = new YourFastStruct(5);
+
+            foreach (var item in randomValueArray)
+            {
+                myFastContainer.Add(item);
+            }
+
+            double actualValue = myFastContainer.GetSum(2, 1);
+        }
+
+        [TestMethod]
+        public void TestCheckIfIndexStartAndEndEquals()
+        {
+            IContainer myTestCollection = new YourFastStruct(5);
+
+            foreach(var item in randomValueArray.Take(5))
+            {
+                myTestCollection.Add(item);
+            }
+
+            Assert.AreEqual(1.5, myTestCollection.GetSum(1, 2));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException), "The Start index lwss end index")]
+        public void CheckExceptionOutOfRangeArray()
+        {
+            IContainer myFastContainer = new YourFastStruct(5);
+
+            foreach (var item in randomValueArray)
+            {
+                myFastContainer.Add(item);
+            }
+
+            double actualValue = myFastContainer.GetSum(6, 10);
+        }
+
         #endregion Test My Struct
     }
 }
