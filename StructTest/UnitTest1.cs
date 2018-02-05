@@ -10,6 +10,14 @@ namespace StructTest
     [TestClass]
     public class UnitTest1
     {
+        private double[] randomValueArray;
+
+        [TestInitialize]
+        public void InitRandomArray()
+        {
+            randomValueArray = new[] { 1.0, 1.2, 1.5, 1.6, 2.0, -1.0, -2.0, 10.0, 8.0, -100.0, 1.0 };
+        }
+
         [TestMethod]
         public void TestMethod1()
         {
@@ -34,6 +42,19 @@ namespace StructTest
             Assert.AreEqual(6.0,testArrayStruct.GetSum(-1, 1));
         }
 
+        [TestMethod]
+        public void CheckCorrectWorkWithRandomArray()
+        {
+            IContainer testArrayStruct = new ArrayStruct(5);
+
+            foreach (var item in randomValueArray)
+            {
+                testArrayStruct.Add(item);
+            }
+
+            Assert.AreEqual(-81.0, testArrayStruct.GetSum(0, 5));
+        }
+
         #endregion Test for ArrayStruct
 
         #region Test For DictStruct
@@ -49,6 +70,20 @@ namespace StructTest
 
             Assert.AreEqual(6.0, testDictStruct.GetSum(-1, 1));
         }
+
+        [TestMethod]
+        public void TestingDictionaryValueRandomArray()
+        {
+            IContainer testDictionaryContainer = new DictStruct(5);
+
+            foreach (var item in randomValueArray)
+            {
+                testDictionaryContainer.Add(item);
+            }
+
+            Assert.AreEqual(-81.0, testDictionaryContainer.GetSum(0, 5));
+        }
+
         #endregion Test For DictStruct
 
         #region Test For LinkedStruct
@@ -66,6 +101,19 @@ namespace StructTest
             Assert.AreEqual(6.0, testLinkedStruct.GetSum(-1, 1));
         }
 
+        [TestMethod]
+        public void TestGetSummForRandomValueArray()
+        {
+            IContainer testLinkedStructure = new LinkedListStruct(5);
+
+            foreach (var item in randomValueArray)
+            {
+                testLinkedStructure.Add(item);
+            }
+
+            Assert.AreEqual(-81.0, testLinkedStructure.GetSum(0, 5));
+        }
+
         #endregion Test For LinkedStruct
 
         #region Test My Struct
@@ -81,6 +129,19 @@ namespace StructTest
             }
 
             Assert.AreEqual(6.0, testMyStruct.GetSum(-1, 1));
+        }
+
+        [TestMethod]
+        public void TestMyStructWithRandomValue()
+        {
+            IContainer testMyTestStruct = new YourFastStruct(5);
+
+            foreach (var item in randomValueArray)
+            {
+                testMyTestStruct.Add(item);
+            }
+
+            Assert.AreEqual(-81.0, testMyTestStruct.GetSum(0, 5));
         }
 
         #endregion Test My Struct

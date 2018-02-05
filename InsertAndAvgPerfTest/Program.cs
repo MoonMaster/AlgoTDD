@@ -15,7 +15,7 @@ namespace InsertAndAvgPerfTest
 
         static void Main(string[] args)
         {
-            Random rnd = new Random();           
+            Random rnd = new Random();
 
             int count = Convert.ToInt16(args[0].Trim());
 
@@ -50,26 +50,18 @@ namespace InsertAndAvgPerfTest
 
             timer.Stop();
 
-            //YourFastStruct test = new YourFastStruct(5);
+            //var randomValueArray = new[] { 1.0, 1.2, 1.5, 1.6, 2.0, -1.0, -2.0, 10.0, 8.0, -100.0, 1.0 };
 
-            //test.Add(1.0);
+            //YourFastStruct testDict = new YourFastStruct(5);
 
-            //test.Add(2.0);
+            //foreach (var item in randomValueArray)
+            //{
+            //    testDict.Add(item);
+            //}
 
-            //test.Add(3.0);
+            //double sumRes = testDict.GetSum(0, 5);
 
-            //test.Add(4.0);
-
-            //test.Add(5.0);
-
-            //test.Add(6.0);
-
-            //test.Add(7.0);
-            //test.Add(8.0);
-            //test.Add(9.0);
-            //test.Add(10.0);
-
-            //double summa = test.GetSum(-1, 1);
+            //double summa = testDict.GetSum(-1, 1);
             //Impelement here comparison test, to proof, your struct is Faster of equal in comparison to others.
 
             Console.ReadLine();

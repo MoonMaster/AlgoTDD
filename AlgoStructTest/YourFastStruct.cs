@@ -7,11 +7,8 @@ namespace AlgoStructTest
 {
     public class YourFastStruct:IContainer
     {
-        //private HashSet<double> hashSetStruct;
 
-        //private SortedDictionary<int,double> stackStruct;
-
-        private SortedSet<double> structSort;
+        private List<double> myFastStruct;
 
         private int limitSize;
 
@@ -19,30 +16,31 @@ namespace AlgoStructTest
 
         public YourFastStruct(int size)
         {
-            //stackStruct = new SortedDictionary<int, double>();
-
-            structSort = new SortedSet<double>();
+            myFastStruct = new List<double>();
 
             limitSize = size;
         }
 
         public void Add(double value)
-        {
+        {           
+
             if (currentIteration != limitSize)
             {
-                //stackStruct.Add(currentIteration, value);
+                myFastStruct.Add(value);
+               
 
-                structSort.Add(value);
             }
             else
             {
-                //stackStruct.Remove(stackStruct.Keys.First());
 
-                //stackStruct.Add(stackStruct.Keys.Max()+1, value);
+                //myFastStruct = myFastStruct.Skip(1).ToList();
 
-                structSort.Remove(structSort.First());
+                myFastStruct.RemoveAt(0);               
 
-                structSort.Add(value);
+                myFastStruct.Add(value);
+
+                
+               
 
                 currentIteration--;
             }
@@ -56,9 +54,10 @@ namespace AlgoStructTest
 
             int newEndIndex = endIndex > limitSize ? limitSize : endIndex;
 
-            //return stackStruct.Skip(newStartIndex + 1).Take(endIndex).Sum(x=> x.Value);
+            return myFastStruct.Skip(newStartIndex + 1).Take(newEndIndex).Sum();
 
-            return structSort.Skip(newStartIndex + 1).Take(newEndIndex).Sum();
-        }
+            //return myFastStruct.Skip(newStartIndex + 1).Take(newEndIndex).Sum(x => x.Value);
+
+        }       
     }
 }

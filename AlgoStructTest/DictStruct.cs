@@ -50,7 +50,8 @@ namespace AlgoStructTest
 
             int newIndexEnd = endIndex > sizeDictionaryContainer ? sizeDictionaryContainer : endIndex;
 
-            return dictionaryContainer.Skip(newIndexStart + 1).Take(newIndexEnd).Sum(value => value.Value);
+            
+            return dictionaryContainer.OrderBy(key => key.Key).Skip(newIndexStart + 1).Take(newIndexEnd).Sum(x => x.Value);
         }
     }
 }
