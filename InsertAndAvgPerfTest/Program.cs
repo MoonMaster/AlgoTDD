@@ -35,7 +35,7 @@ namespace InsertAndAvgPerfTest
 
             var timer = Stopwatch.StartNew();
 
-            int randomCount = count + 1000;
+            int randomCount = count + 100001;
 
 
             TestRun(myArrayStruct, randomCount, "Array Struct");
@@ -77,26 +77,25 @@ namespace InsertAndAvgPerfTest
 
         public static void TestRun(AlgoStructTest.IContainer structName, int count, string normalStructName)
         {
+            Random rnd = new Random();          
             
             for (int index = 0 ; index <= count; index++)
             {
-                structName.Add(index * 1.0);
+                //structName.Add(index * 1.0);
+
+                structName.Add(rnd.NextDouble());
 
             }
 
-            
-
             var resultAdd = timer.ElapsedMilliseconds;
 
-           
-
             double result = structName.GetSum(0, count);
-
-            
 
             var resultSum = timer.ElapsedMilliseconds;
 
             Console.WriteLine("{0,10} \t {1,10} \t {2,10} \t {3,10} \t", normalStructName, count, resultAdd, resultSum);
+
+           
         }
     }
 }
