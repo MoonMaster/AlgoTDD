@@ -31,8 +31,6 @@ namespace InsertAndAvgPerfTest
 
             Console.WriteLine("Struct Name \t Count \t\t Time Add \t\t Time Sum \t");
 
-            //int randomCount = count + rnd.Next();
-
             var timer = Stopwatch.StartNew();
 
             int randomCount = count + 100001;
@@ -50,32 +48,16 @@ namespace InsertAndAvgPerfTest
 
             timer.Stop();
 
-            //var randomValueArray = new[] { 1.0, 1.2, 1.5, 1.6, 2.0, -1.0, -2.0, 10.0, 8.0, -100.0, 1.0 };
-
-            //YourFastStruct testDict = new YourFastStruct(5);
-
-            //foreach (var item in randomValueArray)
-            //{
-            //    testDict.Add(item);
-            //}
-
-            //double sumRes = testDict.GetSum(0, 5);
-
-            //double summa = testDict.GetSum(-1, 1);
-            //Impelement here comparison test, to proof, your struct is Faster of equal in comparison to others.
-
             Console.ReadLine();
         }
 
         public static void TestRun(AlgoStructTest.IContainer structName, int count, string normalStructName)
         {
-            Random rnd = new Random();          
+           
             
             for (int index = 0 ; index <= count; index++)
             {
-                //structName.Add(index * 1.0);
-
-                structName.Add(rnd.NextDouble());
+                structName.Add(index * 1.0);
 
             }
 
