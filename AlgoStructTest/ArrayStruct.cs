@@ -23,7 +23,7 @@ namespace AlgoStructTest
         /// <param name="size">Size array structure</param>
         public ArrayStruct(int size)
         {
-            if (size > 0)
+            if (size > 0 && size < int.MaxValue)
             {
                 arrayContainer = new double[size];
             }

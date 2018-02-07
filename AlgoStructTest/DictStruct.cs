@@ -25,7 +25,7 @@ namespace AlgoStructTest
         /// <param name="size">Size dictionary</param>
         public DictStruct(int size)
         {
-            if (size > 0)
+            if (size > 0 && size < int.MaxValue)
             {
                 dictionaryContainer = new Dictionary<int, double>();
 

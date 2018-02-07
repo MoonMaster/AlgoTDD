@@ -40,6 +40,16 @@ namespace StructTest
             IContainer myArrayStruct = new ArrayStruct(-100);
         }
 
+		/// <summary>
+		/// Check situation if size more int.maxValue
+		/// </summary>
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException), "The size cannot be less than zero")]
+		public void CheckIfSizeMoreIntMax()
+		{
+			IContainer myArrayStruct = new ArrayStruct(Int32.MaxValue);
+		}
+
         /// <summary>
         /// Check situation when size equal zero
         /// </summary>
@@ -130,6 +140,16 @@ namespace StructTest
             IContainer myDictStruct = new DictStruct(-100);
         }
 
+		/// <summary>
+		/// Situation If size more Int max value
+		/// </summary>
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException), "The size cannot be less than zero")]
+		public void CheckIfSizeMoreIntMaxValueDictStruct()
+		{
+			IContainer myDictStruct = new DictStruct(Int32.MaxValue);
+		}
+
         /// <summary>
         /// Check situation when size equal zero
         /// </summary>
@@ -202,6 +222,13 @@ namespace StructTest
         {
             IContainer myLinkedStruct = new LinkedListStruct(-100);
         }
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException), "The size cannot be less than zero")]
+		public void CheckIfSizeMoreMaxValueLinkedStruct()
+		{
+			IContainer myLinkedStruct = new LinkedListStruct(Int32.MaxValue);
+		}
 
         /// <summary>
         /// Check situation when size equal zero
@@ -291,6 +318,13 @@ namespace StructTest
         {
             IContainer myFastContainer = new YourFastStruct(-100);
         }
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException), "The size cannot be less than zero")]
+		public void CheckIfSizeMoreIntMaxValueFastStruct()
+		{
+			IContainer myFastStruct = new YourFastStruct(int.MaxValue);
+		}
 
         /// <summary>
         /// Check situation when user insert size = 0

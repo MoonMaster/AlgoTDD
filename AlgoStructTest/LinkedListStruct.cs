@@ -7,15 +7,28 @@ namespace AlgoStructTest
 {
     public class LinkedListStruct:IContainer
     {
+		/// <summary>
+		/// Linked List using this class
+		/// </summary>
         private LinkedList<double> linkedListStruct;
 
+		/// <summary>
+		/// Limit size of LinkedList
+		/// </summary>
         private int limitSize;
 
+		/// <summary>
+		/// Current iteration
+		/// </summary>
         private int currentIteration;
 
+		/// <summary>
+		/// Constructor for this class
+		/// </summary>
+		/// <param name="size"> Size of Linked List</param>
         public LinkedListStruct(int size)
         {
-            if (size > 0)
+            if (size > 0 && size < int.MaxValue)
             {
                 linkedListStruct = new LinkedList<double>();
 
@@ -25,6 +38,10 @@ namespace AlgoStructTest
                 throw new ArgumentException("The size cannot be less than zero");
         }
 
+		/// <summary>
+		/// Method add value into Linked List
+		/// </summary>
+		/// <param name="value">Adding value</param>
         public void Add(double value)
         {
             if (currentIteration == 0)
@@ -47,6 +64,12 @@ namespace AlgoStructTest
             currentIteration++;
         }
 
+		/// <summary>
+		/// Summation of elements in a given range
+		/// </summary>
+		/// <param name="startIndex">Start index summation</param>
+		/// <param name="endIndex">End index summation</param>
+		/// <returns>Summation of elements</returns>
         public double GetSum(int startIndex, int endIndex)
         {
             if (startIndex > endIndex || startIndex > limitSize)

@@ -10,11 +10,17 @@ namespace AlgoStructTest
     /// </summary>
     public class YourFastStruct:IContainer
     {
-
+		/// <summary>
+		/// List using this class
+		/// </summary>
         private List<double> myFastStruct;
-
+		/// <summary>
+		/// Limit size of collection
+		/// </summary>
         private int limitSize;
-
+		/// <summary>
+		/// Current iteration
+		/// </summary>
         private int currentIteration = 0;
 
         /// <summary>
@@ -24,7 +30,7 @@ namespace AlgoStructTest
 
         public YourFastStruct(int size)
         {
-            if (size > 0)
+            if (size > 0 && size < Int32.MaxValue)
             {
                 myFastStruct = new List<double>();
 
